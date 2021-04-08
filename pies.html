@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pies | Bethany's Pie Shop</title>
         <link rel="stylesheet" href="site.css">
     </head>
@@ -54,4 +54,29 @@
             </nav>
         </footer>
     </body>
+    <script>
+        // Wait for load
+        window.addEventListener("DOMContentLoaded", (e) =>  {
+            const orderButtons = document.querySelectorAll("button[data-order]");
+
+            for(const button of orderButtons) {
+                button.addEventListener("click", (e) => {
+                    const button = e.currentTarget; // HTML Button reference
+                    const container = button.parentNode; // Grab parent reference
+
+                    const order = {
+                        id: button.getAttribute("data-order").innerText,
+                        title: container.querySelector(".title").innerText,
+                        price: container.querySelector(".price").innerText,
+                        desc: container.querySelector(".desc").innerText
+                    };
+
+                    localStorage.setItem("order", JSON.stringify(order));
+
+                    const url = window.location.href.replace("pies.html", "orders.html");
+                    window.location.href = url;
+                });
+            } 
+        });
+    </script>
 </html>
