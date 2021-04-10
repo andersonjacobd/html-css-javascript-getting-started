@@ -113,3 +113,32 @@ article {
     border-radius: 3px;
     color: #fff;
 }
+
+fieldset {
+    border: solid 3px #a493c0;
+}
+
+fieldset > legend {
+    color: #a493c0;
+}
+
+p > label {
+    display: block;
+}
+
+input[type="email"],
+input[type="tel"],  textarea {
+    border-radius: 7px;
+}
+
+input:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:focus:invalid{
+    border-color: black;
+}
